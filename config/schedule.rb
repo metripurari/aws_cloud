@@ -10,7 +10,6 @@ set :bundle_command, 'bundle exec'
 job_type :runner, "cd :path && :bundle_command rails runner -e :environment ':task' :output"
 set :output, "#{path}/log/cron_log.log"
 #
-every 1.minute do
-  puts "AAAAAAAAAAAAAAAAAAAAA"
+every 1.day do
   runner "AwsAmazonCloud.create_or_build", :environment => environment
 end
